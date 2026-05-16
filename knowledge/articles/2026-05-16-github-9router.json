@@ -1,0 +1,12 @@
+{
+  "id": "github-2026-05-16-9router",
+  "title": "decolua/9router",
+  "source": "github",
+  "source_url": "https://github.com/decolua/9router",
+  "summary": "9router provides a unified routing layer for AI coding tools, enabling multi-provider access, fallback, and token optimization.",
+  "content": "9router provides a unified routing layer for AI coding tools, enabling multi-provider access, fallback, and token optimization.\nHighlights:\n- 5377 stars this week\n- Supports 40+ providers\n- Auto-fallback capability\n- Token cost optimization",
+  "tags": ["ai", "infrastructure", "llm", "developer-tools"],
+  "status": "analysed",
+  "created_at": "2026-05-16T00:00:00Z",
+  "updated_at": "2026-05-16T00:00:00Z"
+}

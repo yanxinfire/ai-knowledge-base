@@ -1,0 +1,12 @@
+{
+  "id": "github-2026-05-16-react-doctor",
+  "title": "millionco/react-doctor",
+  "source": "github",
+  "source_url": "https://github.com/millionco/react-doctor",
+  "summary": "react-doctor targets quality issues in AI-generated React code, addressing reliability challenges in AI-assisted frontend development.",
+  "content": "react-doctor targets quality issues in AI-generated React code, addressing reliability challenges in AI-assisted frontend development.\nHighlights:\n- 3314 stars this week\n- Detects bad AI-generated React code\n- Improves code quality\n- Developer productivity tool",
+  "tags": ["ai", "react", "developer-tools", "code-quality"],
+  "status": "analysed",
+  "created_at": "2026-05-16T00:00:00Z",
+  "updated_at": "2026-05-16T00:00:00Z"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "github-2026-05-16-deepseek-tui",
+  "title": "Hmbown/DeepSeek-TUI",
+  "source": "github",
+  "source_url": "https://github.com/Hmbown/DeepSeek-TUI",
+  "summary": "DeepSeek-TUI enables terminal-based interaction with AI coding agents, reflecting growing demand for lightweight developer workflows.",
+  "content": "DeepSeek-TUI enables terminal-based interaction with AI coding agents, reflecting growing demand for lightweight developer workflows.\nHighlights:\n- 8701 stars this week\n- Terminal-based coding agent\n- Supports DeepSeek models\n- Developer-focused workflow",
+  "tags": ["ai", "developer-tools", "agent", "cli"],
+  "status": "analysed",
+  "created_at": "2026-05-16T00:00:00Z",
+  "updated_at": "2026-05-16T00:00:00Z"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "github-2026-05-16-agentmemory",
+  "title": "rohitg00/agentmemory",
+  "source": "github",
+  "source_url": "https://github.com/rohitg00/agentmemory",
+  "summary": "agentmemory introduces persistent memory for AI coding agents, addressing a key limitation in agent continuity and performance.",
+  "content": "agentmemory introduces persistent memory for AI coding agents, addressing a key limitation in agent continuity and performance.\nHighlights:\n- 6865 stars this week\n- Persistent memory system\n- Benchmark-driven claims\n- Improves agent continuity",
+  "tags": ["ai", "agent", "memory", "developer-tools"],
+  "status": "analysed",
+  "created_at": "2026-05-16T00:00:00Z",
+  "updated_at": "2026-05-16T00:00:00Z"
+}

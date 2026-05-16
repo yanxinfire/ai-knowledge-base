@@ -87,11 +87,11 @@ Requirements:
 
 ## 6. Agent Roles Overview
 
-| Agent      | Responsibility                                      | Input            | Output                                  |
-|------------|-----------------------------------------------------|------------------|------------------------------------------|
-| Collector  | Fetch and filter data from external sources         | None (scheduled) | Raw content (README, links, metadata)    |
-| Analyser   | Extract insights and generate structured knowledge  | Raw content      | Structured JSON object                   |
-| Organiser  | Normalise, validate, and persist final outputs      | Structured data  | Clean JSON + ready-to-publish content    |
+| Agent      | Responsibility                                      | Input            | Output                                  | Spec File                          |
+|------------|-----------------------------------------------------|------------------|------------------------------------------|------------------------------------|
+| Collector  | Fetch and filter data from external sources         | None (scheduled) | Raw content (README, links, metadata)    | `.opencode/agents/collector.md`    |
+| Analyser   | Extract insights and generate structured knowledge  | Raw content      | Structured JSON object                   | `.opencode/agents/analyser.md`     |
+| Organiser  | Normalise, validate, and persist final outputs      | Structured data  | Clean JSON + ready-to-publish content    | `.opencode/agents/organiser.md`    |
 
 ---
 

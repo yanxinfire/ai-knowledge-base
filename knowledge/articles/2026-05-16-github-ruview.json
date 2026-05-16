@@ -1,0 +1,12 @@
+{
+  "id": "github-2026-05-16-ruview",
+  "title": "ruvnet/RuView",
+  "source": "github",
+  "source_url": "https://github.com/ruvnet/RuView",
+  "summary": "RuView explores WiFi-based sensing for spatial intelligence and health monitoring, expanding AI use cases beyond vision-based systems.",
+  "content": "RuView explores WiFi-based sensing for spatial intelligence and health monitoring, expanding AI use cases beyond vision-based systems.\nHighlights:\n- 4963 stars this week\n- WiFi-based sensing\n- No camera required\n- Use cases: presence and vital signs",
+  "tags": ["ai", "iot", "sensing", "health"],
+  "status": "analysed",
+  "created_at": "2026-05-16T00:00:00Z",
+  "updated_at": "2026-05-16T00:00:00Z"
+}
