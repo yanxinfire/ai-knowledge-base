@@ -1,80 +1,134 @@
 # AGENTS.md
 
-## Overview
-This project uses a multi-agent pipeline to collect, analyze, organize, and release AI knowledge from GitHub Trending.
-
-Pipeline:
-Collect -> Analysis -> Organization -> Release
+## 1. Overview
+This project is an automated AI knowledge assistant designed to continuously collect, analyse, and structure high-quality technical updates in the AI, LLM, and Agent domains. It aggregates content from sources such as GitHub Trending and Hacker News, processes it using AI models, and stores it in a structured JSON format for downstream distribution across multiple channels (e.g. Telegram and Teams).
 
 ---
 
-## Agents
-
-### 1. Collect Agent (Ingestion + Filter + Fetch)
-Responsibility:
-- Fetch top 20 daily repos from GitHub Trending
-- Apply keyword filter: "ai", "llm", "agents"
-- Validate AI relevance via name/description/topics
-- Retrieve README content and repo metadata (stars, description, links)
-
-Input:
-- None (scheduled trigger)
-
-Output:
-- Raw content package per repo
+## 2. Tech Stack
+- Python 3.14
+- OpenCode + large language models
+- LangGraph (agent orchestration)
+- OpenClaw (automation and execution layer)
 
 ---
 
-### 4. Analysis Agent
-Responsibility:
-- Generate structured knowledge
+## 3. Coding Standards
 
-Output fields:
-- Summary (1–2 sentences)
-- Why it matters
-- Key ideas (3–5 bullets)
-- How to use (high-level)
-- When to use (use cases)
-- Links
+All code must adhere to the following conventions:
 
-Input:
-- Raw repo content
+- Follow **PEP 8** strictly
+- Use `snake_case` for variables, functions, and file names
+- Use **Google-style docstrings** for all public functions and classes
+- Type hints are required wherever applicable
+- Logging must be used instead of printing
+- **Bare `print()` statements are strictly prohibited**
 
-Output:
-- Structured knowledge object
+Example:
 
----
+```python
+def fetch_trending_repos(limit: int) -> list[dict]:
+    """Fetch top repositories from GitHub Trending.
 
-### 5. Organization Agent
-Responsibility:
-- Normalize output into consistent schema
-- Prepare Markdown and JSON representations
+    Args:
+        limit: Number of repositories to retrieve.
 
-Input:
-- Structured knowledge object
-
-Output:
-- Markdown content
-- JSON object
+    Returns:
+        A list of repository metadata dictionaries.
+    """
+    ...
+```
 
 ---
 
-### 4. Release Agent (Validator + Verifier)
-Responsibility:
-- Validate required fields and JSON schema before release
-- Persist outputs
-- Log run status
-- Enable manual spot checks
+## 4. Project Structure
 
-Output:
-- Markdown files (human-readable)
-- JSON files (machine-readable)
+```
+.opencode/
+  agents/        # Agent definitions (collector, analyser, organiser)
+    collector.md
+    analyser.md
+    organiser.md
+  skills/        # Reusable capabilities and tools
+
+knowledge/
+  raw/           # Raw collected data (unprocessed)
+  articles/      # Structured knowledge outputs (JSON)
+```
 
 ---
 
-## Design Principles
+## 5. Knowledge Entry Schema (JSON)
 
-- Fully automated (no manual curation)
-- Lightweight outputs (no deep tutorials or code analysis)
-- Markdown for humans, JSON for agents
-- Daily incremental updates (no historical backfill)
+Each knowledge item must conform to the following schema:
+
+```json
+{
+  "id": "string",
+  "title": "string",
+  "source": "github | hackernews | other",
+  "source_url": "string",
+  "summary": "string",
+  "content": "string",
+  "tags": ["ai", "llm", "agent"],
+  "status": "raw | analysed | published",
+  "created_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "updated_at": "YYYY-MM-DDTHH:MM:SSZ"
+}
+```
+
+Requirements:
+- `summary` must be concise (1–3 sentences)
+- `tags` must be normalised (lowercase, no duplicates)
+- `status` reflects pipeline stage
+- All timestamps must be in ISO 8601 format (UTC)
+
+---
+
+## 6. Agent Roles Overview
+
+| Agent      | Responsibility                                      | Input            | Output                                  |
+|------------|-----------------------------------------------------|------------------|------------------------------------------|
+| Collector  | Fetch and filter data from external sources         | None (scheduled) | Raw content (README, links, metadata)    |
+| Analyser   | Extract insights and generate structured knowledge  | Raw content      | Structured JSON object                   |
+| Organiser  | Normalise, validate, and persist final outputs      | Structured data  | Clean JSON + ready-to-publish content    |
+
+---
+
+## 7. Red Lines (Strictly Prohibited)
+
+The following actions are strictly forbidden:
+
+- Introducing hard-coded secrets (API keys, tokens, credentials)
+- Using `print()` for debugging or logging
+- Writing unstructured or schema-breaking JSON outputs
+- Skipping validation before persisting data
+- Copying large sections of source content verbatim without summarisation
+- Manually modifying generated data outside the pipeline
+- Adding unnecessary complexity or over-engineering solutions
+- Ignoring existing project structure or conventions
+- Implementing agents as Python code instead of Markdown specs
+
+---
+
+## Notes
+
+- The system prioritises consistency, automation, and clarity over completeness
+- Each knowledge entry should be quick to read and high in signal
+- The pipeline must remain modular and extensible for future sources and distribution channels
+
+---
+
+## 8. Agent Implementation Rule
+
+This project follows a **spec-first agent design**.
+
+- Agents MUST be defined as Markdown files under `.opencode/agents/`
+- DO NOT implement agents as Python code unless explicitly requested
+- Agent files are:
+  - `collector.md`
+  - `analyser.md`
+  - `organiser.md`
+- These files define behaviour and responsibilities, not executable logic
+
+All implementations (if added later) must strictly follow these specifications rather than replace them.
