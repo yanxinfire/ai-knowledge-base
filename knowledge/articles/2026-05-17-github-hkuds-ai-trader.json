@@ -1,0 +1,12 @@
+{
+  "id": "2026-05-17-github-hkuds-ai-trader",
+  "title": "HKUDS/AI-Trader",
+  "source": "github",
+  "source_url": "https://github.com/HKUDS/AI-Trader",
+  "summary": "End-to-end autonomous trading system using AI agents for decision-making and execution in financial markets.",
+  "content": "End-to-end autonomous trading system using AI agents for decision-making and execution in financial markets.",
+  "tags": ["ai", "agents", "trading"],
+  "status": "analysed",
+  "created_at": "2026-05-17T00:00:00Z",
+  "updated_at": "2026-05-17T00:00:00Z"
+}

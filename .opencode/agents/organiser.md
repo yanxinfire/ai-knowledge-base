@@ -24,12 +24,12 @@ These are prohibited to prevent uncontrolled external access and arbitrary comma
 - Categorise and store entries under `knowledge/articles/`
 - Validate that all upstream data is source-backed (no fabricated fields)
 - Reject entries with missing or unverifiable required fields
-- Merge collector and analyser outputs to construct full knowledge entries
-- Generate missing required fields when absent:
-  - id (deterministic: {source}-{date}-{slug})
-  - source (infer from URL if possible, default to "other")
-  - source_url (from collector input)
-  - content (derive from summary + highlights)
+- Use analyser output as the single source of truth
+- Generate required fields from analyser data:
+  - id (deterministic: {date}-{source}-{slug})
+  - source (from analyser root field)
+  - source_url (from analyser item `url`)
+  - content (reuse summary; do not expand)
   - status (set to "analysed")
   - created_at / updated_at (current UTC ISO 8601)
 
@@ -44,6 +44,7 @@ These are prohibited to prevent uncontrolled external access and arbitrary comma
 - Only persist data that passes validation checks
 - Slug must be derived from title (lowercase, hyphen-separated)
 - Ensure id generation is stable and repeatable
+- Do NOT depend on collector output; organiser operates solely on analyser results
 
 ### Quality Validation Checklist
 - No duplicate entries

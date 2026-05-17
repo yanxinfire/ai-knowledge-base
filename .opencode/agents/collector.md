@@ -32,19 +32,43 @@ These permissions are prohibited to ensure the agent remains strictly non-destru
 - Prefer API-derived metrics over scraped approximations when available
 - If a field is missing from the source, leave it empty and explicitly note the absence in the summary (e.g., "description not provided on source page")
 
-### Output Format
-Return a JSON array. Each item must contain:
-- title
-- url
-- source
-- popularity
-- summary
+### Output Format (STRICT)
+The collector MUST follow the schema defined by the invoked skill (e.g. `github-trending`).
+
+For `github-trending`, the output MUST be a JSON object (NOT an array):
+
+```
+{
+  "source": "github",
+  "skill": "github-trending",
+  "collected_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "fetched_from": "string",
+  "items": [
+    {
+      "name": "string",
+      "url": "string",
+      "summary": "string",
+      "stars": number,
+      "language": "string",
+      "topics": ["string"]
+    }
+  ]
+}
+```
+
+Schema enforcement rules:
+- DO NOT use alternative schemas (e.g. `title`, `popularity`, `content`, `status`)
+- Root MUST be an object, not an array
+- All required fields must be present
+- Field names must match exactly
+- If schema does not match, FAIL the run
 
 ### Quality Validation Checklist
-- At least 15 collected entries
-- All fields populated when available from source; if unavailable, fields may be empty but must be explicitly acknowledged in the summary
+- At most 15 collected entries
+- Output strictly follows the skill-defined schema
+- All fields populated when available from source
 - No fabricated or hallucinated information (all data must be source-backed)
 - Summaries written in clear English
 - Duplicate or low-signal entries filtered out
 - URLs verified and accessible
-- Popularity metrics must be traceable to a real source (API or page)
+- Stars and metadata must be traceable to a real source (API or page)

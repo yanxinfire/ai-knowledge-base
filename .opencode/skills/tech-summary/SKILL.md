@@ -17,15 +17,32 @@ allowed-tools:
 ## Execution Steps
 
 1. Read the latest collected file from `knowledge/raw/`
-2. Analyse each item:
+2. Validate input integrity (STRICT):
+   - Load all items from the input file
+   - Record the exact set of `(name, url)` pairs
+   - If the file is empty or malformed, abort
+3. Analyse each item (NO ADDITIONS):
    - Write a summary (≤ 50 words)
    - Extract 2–3 technical highlights based on concrete facts
    - Assign a score from 1–10 with reasoning
    - Suggest relevant tags
-3. Identify trends:
+4. Enforce constraints (STRICT):
+   - Output MUST contain exactly the same number of items as input
+   - Every output item MUST match an input `(name, url)` pair exactly
+   - Do NOT introduce, rename, or omit any items
+   - Do NOT drop any items during analysis; all input items must be included
+   - At most 2 items may have scores 9–10
+   - Avoid hype-based scoring; be evidence-driven
+5. Identify trends:
    - Common themes
    - Emerging concepts
-4. Output structured analysis JSON
+6. Pre-output validation (FAIL FAST):
+   - Verify item count equality (input == output)
+   - Verify all `(name, url)` pairs match the input set
+   - Verify no items were dropped or omitted
+   - Verify score constraints are satisfied
+   - If any check fails, regenerate until valid
+7. Output structured analysis JSON (READ-ONLY; do not write files)
 
 ## Notes
 
@@ -38,6 +55,9 @@ allowed-tools:
 - Avoid hype-based scoring; prioritise technical depth and real-world applicability
 - Keep all analysis concise and evidence-driven
 - Tags must be normalised (lowercase, no duplicates)
+- Do not introduce any items not present in the input file
+- Do not change names or URLs; preserve exact values from input
+- The analyser is read-only: it must not write or modify files
 
 ## Output Format
 

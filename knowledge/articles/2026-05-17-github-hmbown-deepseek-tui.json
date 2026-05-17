@@ -1,0 +1,12 @@
+{
+  "id": "2026-05-17-github-hmbown-deepseek-tui",
+  "title": "Hmbown/DeepSeek-TUI",
+  "source": "github",
+  "source_url": "https://github.com/Hmbown/DeepSeek-TUI",
+  "summary": "Terminal-based coding agent for DeepSeek models, enabling local, developer-centric AI workflows without GUI overhead.",
+  "content": "Terminal-based coding agent for DeepSeek models, enabling local, developer-centric AI workflows without GUI overhead.",
+  "tags": ["ai", "llm", "agents"],
+  "status": "analysed",
+  "created_at": "2026-05-17T00:00:00Z",
+  "updated_at": "2026-05-17T00:00:00Z"
+}

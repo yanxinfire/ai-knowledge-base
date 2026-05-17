@@ -1,0 +1,12 @@
+{
+  "id": "2026-05-17-github-decolua-9router",
+  "title": "decolua/9router",
+  "source": "github",
+  "source_url": "https://github.com/decolua/9router",
+  "summary": "Routes requests across multiple LLM providers with fallback and optimization, improving reliability and cost efficiency in AI applications.",
+  "content": "Routes requests across multiple LLM providers with fallback and optimization, improving reliability and cost efficiency in AI applications.",
+  "tags": ["ai", "llm", "agents"],
+  "status": "analysed",
+  "created_at": "2026-05-17T00:00:00Z",
+  "updated_at": "2026-05-17T00:00:00Z"
+}

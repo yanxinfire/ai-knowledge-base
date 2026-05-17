@@ -1,0 +1,12 @@
+{
+  "id": "2026-05-17-github-bytedance-ui-tars-desktop",
+  "title": "bytedance/UI-TARS-desktop",
+  "source": "github",
+  "source_url": "https://github.com/bytedance/UI-TARS-desktop",
+  "summary": "Multimodal agent stack combining model orchestration and infrastructure, enabling development of complex, production-ready AI agent systems.",
+  "content": "Multimodal agent stack combining model orchestration and infrastructure, enabling development of complex, production-ready AI agent systems.",
+  "tags": ["ai", "agents", "multimodal"],
+  "status": "analysed",
+  "created_at": "2026-05-17T00:00:00Z",
+  "updated_at": "2026-05-17T00:00:00Z"
+}
